@@ -8,7 +8,7 @@ services:
     environment:
       - TZ=Asia/Shanghai
     volumes:
-      - /d/docker-data/prometheus/etc:/etc/prometheus
+      - ${GITHUB_WORKSPACE}/.github/prometheus:/etc/prometheus
     ports:
       - "9090:9090"
   swoole:
