@@ -193,6 +193,9 @@ public function testSummary(): int
 #### 手动操作
 
 ```php
+use \Imi\Meter\Facade\MeterRegistry;
+use \Imi\Meter\Enum\TimeUnit;
+
 $description = '我是描述';
 $tags = ['result' => 'success'];
 
