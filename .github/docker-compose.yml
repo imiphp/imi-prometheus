@@ -11,8 +11,21 @@ services:
       - ${GITHUB_WORKSPACE}/.github/prometheus:/etc/prometheus
     ports:
       - "9090:9090"
+  redis:
+    image: redis:6-alpine
+    container_name: redis
+    command: redis-server /etc/redis.conf
+    volumes:
+      - ./redis.conf:/etc/redis.conf
+    ports:
+      - 6379:6379
   swoole:
     container_name: "swoole"
+    depends_on:
+      - prom
+      - redis
+    environment:
+      REDIS_SERVER_HOST: ${REDIS_SERVER_HOST}
     build:
       context: .
       dockerfile: swoole.dockerfile
