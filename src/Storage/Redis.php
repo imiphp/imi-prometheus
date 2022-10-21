@@ -22,11 +22,6 @@ class Redis implements Adapter
 
     private string $prefix = 'PROMETHEUS_';
 
-    /**
-     * @var mixed[]
-     */
-    private array $options = [];
-
     private ?string $poolName = null;
 
     /**
@@ -36,7 +31,6 @@ class Redis implements Adapter
      */
     public function __construct(array $options = [])
     {
-        $this->options = $options;
         $this->poolName = $options['poolName'] ?? null;
         $this->prefix = $options['prefix'] ?? 'PROMETHEUS_';
     }

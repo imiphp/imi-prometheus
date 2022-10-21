@@ -14,6 +14,7 @@ class PrometheusSummary extends Summary
     public function record(float $value): void
     {
         $tags = $this->getTags();
+        $options = $this->getOptions();
         $this->meterRegistry->getCollectorRegistry()->getOrRegisterSummary('', $this->getName(), $this->getDescription(), array_keys($tags), $options['maxAgeSeconds'] ?? 600, $this->getPercentile())->observe($value, array_values($tags));
     }
 
