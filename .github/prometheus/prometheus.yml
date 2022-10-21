@@ -1,0 +1,10 @@
+---
+global: #全局配置
+  scrape_interval: 5s #5秒钟收集一次数据
+  scrape_timeout: 3s #连接超时时间
+scrape_configs: #子配置
+  - job_name: "test" # 任务名称为media
+    scrape_interval: 3s # 3秒钟收集一次数据
+    metrics_path: "/metrics" # 收集数据的URI
+    static_configs: #子项配置
+      - targets: ["swoole:8080"] #收集数据的目标主机以及端口

@@ -1,0 +1,26 @@
+version: "3.4"
+volumes:
+  shared-volume:
+services:
+  prom:
+    image: prom/prometheus:${PROMETHEUS_VERSION}
+    container_name: prom
+    environment:
+      - TZ=Asia/Shanghai
+    volumes:
+      - /d/docker-data/prometheus/etc:/etc/prometheus
+    ports:
+      - "9090:9090"
+  swoole:
+    container_name: "swoole"
+    build:
+      context: .
+      dockerfile: swoole.dockerfile
+      args:
+        SWOOLE_DOCKER_VERSION: ${SWOOLE_DOCKER_VERSION}
+    volumes:
+      - "${GITHUB_WORKSPACE}:/imi:rw"
+    working_dir: /imi
+    command: tail -f /dev/null
+    ports:
+      - "8080:8080"
