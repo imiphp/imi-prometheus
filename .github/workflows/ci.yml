@@ -25,13 +25,6 @@ jobs:
           docker exec swoole php --ri swoole
           docker exec swoole composer -V
           docker exec swoole composer update --no-interaction --prefer-dist --no-progress
-      - name: Wait for container
-        uses: stringbean/docker-healthcheck-action@v1
-        with:
-          container: prometheus
-          wait-time: 120
-          require-status: running
-          require-healthy: true
       - name: Test
         run: docker exec swoole composer test
       - name: Print logs
