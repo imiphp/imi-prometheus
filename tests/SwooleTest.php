@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Imi\Prometheus\Test;
 
-class SwooleProcessTest extends BaseTest
+class SwooleTest extends BaseTest
 {
     protected string $registryServiceName = 'main';
 

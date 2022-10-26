@@ -9,8 +9,7 @@
          stopOnFailure="false">
     <testsuites>
         <testsuite name="swoole">
-            <file>tests/SwooleWorkerTest.php</file>
-            <file>tests/SwooleProcessTest.php</file>
+            <file>tests/SwooleTest.php</file>
         </testsuite>
         <testsuite name="workerman">
             <file>tests/WorkermanTest.php</file>
