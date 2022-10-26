@@ -58,6 +58,8 @@
 
 ##### @Counted
 
+类名：`\Imi\Meter\Annotation\Counted`
+
 计数统计，适合只累加，不减少的统计数据类型。
 
 例如：访问次数统计。
@@ -71,6 +73,8 @@
 | options | `array` | `[]` | 额外参数，每个驱动不同 |
 
 ##### @Gauged
+
+类名：`\Imi\Meter\Annotation\Gauged`
 
 适合数字有上下波动的统计。
 
@@ -87,6 +91,8 @@
 | options | `array` | `[]` | 额外参数，每个驱动不同 |
 
 ##### @Timed
+
+类名：`\Imi\Meter\Annotation\Timed`
 
 耗时统计。
 
@@ -113,6 +119,8 @@
 
 ##### @Histogram
 
+类名：`\Imi\Meter\Annotation\Histogram`
+
 柱状图，一般人用不懂，如无特殊需求可以无视。
 
 | 参数名 | 类型 | 默认值  | 描述 |
@@ -126,6 +134,8 @@
 | options | `array` | `[]` | 额外参数，每个驱动不同 |
 
 ##### @Summary
+
+类名：`\Imi\Meter\Annotation\Summary`
 
 采样点分位图，一般人用不懂，如无特殊需求可以无视。
 
