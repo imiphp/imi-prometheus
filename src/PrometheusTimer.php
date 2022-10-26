@@ -15,6 +15,7 @@ class PrometheusTimer extends Timer
 {
     public function record(int $nanoSecond, ?int $timeUnit = null): void
     {
+        parent::record($nanoSecond, $timeUnit);
         $tags = $this->getTags();
         $options = $this->getOptions();
         $amount = TimeUnitUtil::convert($nanoSecond, TimeUnit::NANO_SECOND, $timeUnit ?? $this->baseTimeUnit());

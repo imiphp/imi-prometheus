@@ -13,6 +13,7 @@ class PrometheusHistogram extends Histogram
 {
     public function record(float $value): void
     {
+        parent::record($value);
         $tags = $this->getTags();
         $this->meterRegistry->getCollectorRegistry()->getOrRegisterHistogram('', $this->getName(), $this->getDescription(), array_keys($tags), $this->getBuckets())->observe($value, array_values($tags));
     }
