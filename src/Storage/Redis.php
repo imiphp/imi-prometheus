@@ -410,7 +410,7 @@ class Redis implements Adapter
                 'type'           => $metaData['type'],
                 'labelNames'     => $metaData['labelNames'],
                 'maxAgeSeconds'  => $metaData['maxAgeSeconds'],
-                'percentile'     => $metaData['percentile'],
+                'quantiles'      => $metaData['quantiles'],
                 'samples'        => [],
             ];
 
@@ -441,9 +441,9 @@ class Redis implements Adapter
                     continue;
                 }
 
-                // Compute percentile
+                // Compute quantiles
                 sort($samples);
-                foreach ($data['percentile'] as $quantile)
+                foreach ($data['quantiles'] as $quantile)
                 {
                     $data['samples'][] = [
                         'name'        => $metaData['name'],
