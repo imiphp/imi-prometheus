@@ -81,7 +81,7 @@ return [
     'pools'    => [
         'redis'    => [
             'pool'    => [
-                'class'        => \Imi\Redis\SyncRedisPool::class,
+                'class'        => \Imi\Swoole\Redis\Pool\CoroutineRedisPool::class,
                 'config'       => [
                     'maxResources'    => 10,
                     'minResources'    => 1,

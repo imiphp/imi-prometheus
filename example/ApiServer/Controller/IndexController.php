@@ -8,6 +8,7 @@ use app\Service\TestService;
 use Imi\Aop\Annotation\Inject;
 use Imi\Controller\HttpController;
 use Imi\Meter\Annotation\Counted;
+use Imi\Redis\Redis;
 use Imi\Server\Http\Route\Annotation\Action;
 use Imi\Server\Http\Route\Annotation\Controller;
 use Imi\Server\Http\Route\Annotation\Route;
@@ -104,5 +105,15 @@ class IndexController extends HttpController
                 $callback();
             }
         }
+    }
+
+    /**
+     * @Action
+     *
+     * @return mixed
+     */
+    public function testRedis()
+    {
+        Redis::get('a');
     }
 }
